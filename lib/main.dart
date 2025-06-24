@@ -22,13 +22,16 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => DiceRollerViewModel()),
         ChangeNotifierProvider(create: (_) => HistoryViewModel()),
-        ChangeNotifierProvider(create: (_) => PokeapiViewmodel()),
+        ChangeNotifierProvider(create: (_) => PokeapiViewModel()),
       ],
       child: MaterialApp(
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         home: Navigator(),
+        routes: {
+          '/pokeapi': (context) => const PokeapiScreen(),
+        },
       ),
     );
   }
