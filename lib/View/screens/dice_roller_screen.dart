@@ -1,5 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../ViewModel/history_viewmodel.dart';
 
 class DiceRollerScreen extends StatefulWidget {
   const DiceRollerScreen({super.key});
@@ -17,6 +19,7 @@ class _DiceRollerScreenState extends State<DiceRollerScreen> {
     setState(() {
       _curentDiceValue = newRoll;
     });
+    Provider.of<HistoryViewModel>(context, listen: false).addRoll(newRoll);
   }
 
   @override
